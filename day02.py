@@ -23,10 +23,12 @@ for line in lines:
     valid += compute(line)
 
 # Answer to part 1
-print(valid)
+print("Valids:", valid)
 
+### My approach
 
-### PART 2
+ans = 0
+counter = 0
 
 data_list = inputs.strip().split()
 
@@ -37,5 +39,17 @@ char = [x[0] for x in data_list[1::3]]
 
 password = data_list[2::3]
 
-for i in range(len(char)):
-    print(ranges[i], char[i], password[i])
+low = [int(x.split('-')[0]) for x in ranges]
+high = [int(x.split('-')[1]) for x in ranges]
+
+
+for i, p in enumerate(password):
+    counter = p.count(char[i])
+    if low[i] <= counter <= high[i]:
+        ans += 1
+
+print("My solution:", ans)
+
+
+### PART 2
+
