@@ -22,5 +22,20 @@ def compute(line):
 for line in lines:
     valid += compute(line)
 
-
+# Answer to part 1
 print(valid)
+
+
+### PART 2
+
+data_list = inputs.strip().split()
+
+ranges = data_list[::3]
+
+# Getting the first char and excluding the colon ':'
+char = [x[0] for x in data_list[1::3]]
+
+password = data_list[2::3]
+
+for i in range(len(char)):
+    print(ranges[i], char[i], password[i])
